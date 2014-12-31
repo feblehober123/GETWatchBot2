@@ -97,15 +97,13 @@ class GET:
                 else:
                     self.next_GET = repdigits.nextget(self.new_post['no'], 6)
                 
-                #timeline = twitter.user_timeline(count=20)
-                #for status in timeline:
-                #    if '/'+self.board+'/' in status.text:   #Do not tweet if a human has mentioned the board in the past hour
-                #        if (datetime.utcnow() - status.created_at).total_seconds()/3600.0 < HOURS_HUMAN_TWEET_IS_RELEVANT:
-                #            self.tweeted = True
-                #            break
-                #        else:
-                #            self.tweeted = False
-                #        #self.tweeted = True
+		self.tweeted = False
+                timeline = twitter.user_timeline(count=20)
+                for status in timeline:
+                    if '/'+self.board+'/' in status.text:   #Do not tweet if a human has mentioned the board in the past hour
+                        if (datetime.utcnow() - status.created_at).total_seconds()/3600.0 < HOURS_HUMAN_TWEET_IS_RELEVANT:
+                            self.tweeted = True
+                            break
                 
                 if (((self.new_post['time'] - self.old_post['time'])/60.0) > 0):
                     self.posting_rate = (self.new_post['no'] - self.old_post['no'])/((self.new_post['time'] - self.old_post['time'])/60.0)

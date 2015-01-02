@@ -64,8 +64,11 @@ class GET:
                 oldest_thr = jthrs[0]['threads'][0]     #and oldest to newest
                 for page in jthrs:  #then find the actual newest/oldest
                     for thr in page['threads']:
-                        if (thr['last_modified'] > newest_thr['last_modified'] and datetime.utcfromtimestamp(thr['last_modified']) < datetime.utcnow()):
-                            newest_thr = thr
+                        try:
+                            if (thr['last_modified'] > newest_thr['last_modified'] and datetime.utcfromtimestamp(thr['last_modified']) < datetime.utcnow()):
+                                newest_thr = thr
+                        except ValueError as e: #catch timestamp out of range error
+                            pass
                         if (thr['last_modified'] < oldest_thr['last_modified']):
                             oldest_thr = thr
                 r = s.get('http://a.4cdn.org/'+self.board+'/thread/'+str(newest_thr['no'])+'.json')

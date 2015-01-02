@@ -14,11 +14,13 @@ Experience has shown that I may not always be able to keep the GETWatchBot onlin
 
 The GETWatchBot uses the external libraries tweepy and requests. You can install them with
 
-`$ pip install tweepy requests`
+`$ pip install tweepy requests` 
 
 assuming you are on a Unix-like system, but if you aren't, you probably won't be able to use the bot anyway without recompiling repdigits.c (see repdigits_setup.py).
 
 The oauth.py script is useful for obtaining the access key/secret, which should be placed in oauth.conf
+
+repdigits.so was compiled on an amd64 architechture. If your processor is not amd64, you will need to recompile it with the simple repdigits_compile.sh script. This requires gcc.
 
 Requirements
 ------------
@@ -27,7 +29,7 @@ Requirements
 * requests
 * tweepy
 
-You can install them with
+Again, you can install them with
 
 `$ pip install requests tweepy`
 
@@ -40,7 +42,7 @@ The run.py script is a wrapper around main.py that restarts the bot when it cras
 Contributing
 ------------
 
-If there is something you would like to contribute to the bot, please do, it can use all the help it can get. Even if you have just determined that the bot is not running, or that it did not tweet about a GET, please contact me through [email](mailto:kabochan222@gmail.com).
+If there is something you would like to contribute to the bot, please do, it can use all the help it can get. Even if you have just determined that the bot is not running, or that it did not tweet about a GET, please contact me through [email](mailto:kabochan222@gmail.com). If you have decided to run the bot because I cannot, please email me first, but if I do not respond in a while you are free to assume that I am MIA.
 
 Credits
 -------
@@ -52,7 +54,10 @@ Notes
 
 This bot is (probably) buggy, but hopefully less buggy than the original, otherwise I wasted my time on rewriting it/scrapping it together. It may not always work, especially if the 4chan API changes.
 
-TO DO: ~~Fix broken boards- some boards have a sticky with a modification time years in the future, no GETs will be detected on these boards until the no sticky feature is added to the newest thread selector.~~ FIXED
+TO DO: 
+
+* Automatically initialize new boards and append them to the list of GET classes
+* Add error loggers for caught exceptions in GET.py
 
 License
 -------

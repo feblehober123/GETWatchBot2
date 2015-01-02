@@ -88,17 +88,24 @@ locale.setlocale(locale.LC_TIME, 'en_US') # <-- non-US-figs replace en_US
 # the HTTP Date RFC 1123 
 
 try:
-    open('.boards_cache.txt', 'r').close()
-except IOError:
-    open('.boards_cache.txt', 'w').close()  #creates the file if it doesnt exist
+    f = open('.boards_cache.txt', 'r')
+    f.read().split()[0]
+    f.close()
+except (IOError, IndexError):
+    f = open('.boards_cache.txt', 'w')
+    f.write('0')
+    f.close()  #creates the file if it doesnt exist
 
-with open('.boards_cache.txt', 'ra') as f:    #load cached boardnames, so I can detect which ones are new.
+with open('.boards_cache.txt', 'ra') as f:    #load cached boardnames, so I can$
     l = f.read().split()
     timestamp = l[0]    #first line is the time boardnames were saved
     boardnames = l[1:]  #the rest are the boards
 
 s = requests.Session()
-s.headers.update({"User-Agent": "GETWatchBot/2.0 (@https://github.com/feblehober123/GETWatchBot)"})
+s.headers.update({"User-Agent": "GETWatchBot/2.0 (@https://github.com/feblehober123/GETWatchBot2)"})
+
+print "Updating boardnames..."
+boardnames = update_boards(boardnames)
 
 #Initialize list of GET classes
 stdout.write('Initializing boards... ')

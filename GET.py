@@ -21,7 +21,7 @@ import locale
 # other things; I suggest you read it through before using.
 
 s = requests.Session()
-s.headers.update({"User-Agent": "GETWatchBot/2.0 (@https://github.com/feblehober123/GETWatchBot)"})
+s.headers.update({"User-Agent": "GETWatchBot/2.0 (@https://github.com/feblehober123/GETWatchBot2)"})
 
 locale.setlocale(locale.LC_TIME, 'en_US') # <-- non-US-figs replace en_US 
 # with a locale that has shortened month/weekday names compliant with 

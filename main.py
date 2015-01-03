@@ -51,16 +51,6 @@ def update_boards(boards):    #update list of boardnames, and tweet about new on
             f.write(listed_board+'\n')
     return boards
 
-#Check if someone has tweeted about the GET
-def get_tweeted(board):
-    timeline = twitter.user_timeline(count=20)
-    for status in timeline:
-        if '/'+board.board+'/' in status.text:   #Do not tweet if a human has mentioned the board in the past hour
-            if (datetime.now() - status.created_at).days*24 < HOURS_HUMAN_TWEET_IS_RELEVANT:
-                return True
-    #If we are here, the humans have not tweeted
-    return False
-
 #Returns the name of a GET
 def GET_name(GET):
     if str(GET)[-1] == 9:   #Change 9s to 0s, e.g. 1999999 becomes 2000000

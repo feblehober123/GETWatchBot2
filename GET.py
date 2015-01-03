@@ -103,7 +103,7 @@ class GET:
 		self.tweeted = False
                 timeline = twitter.user_timeline(count=20)
                 for status in timeline:
-                    if '/'+self.board+'/' in status.text:   #Do not tweet if a human has mentioned the board in the past hour
+                    if ('/'+self.board+'/' in status.text or '['+self.board+']' in status.text):   #Do not tweet if a human has mentioned the board in the past hour
                         if (datetime.utcnow() - status.created_at).total_seconds()/3600.0 < HOURS_HUMAN_TWEET_IS_RELEVANT:
                             self.tweeted = True
                             break

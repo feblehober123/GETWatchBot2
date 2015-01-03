@@ -1,6 +1,6 @@
 ### CONFIG VARS
 # moved here to be accessible to all files 
-HOURS_HUMAN_TWEET_IS_RELEVANT = 1
+HOURS_HUMAN_TWEET_IS_RELEVANT = 2
 DAYS_NEW_BOARD_IS_FRESH    = 2     #Days after creation of a board that the bot will still tweet about the new board
 MINUTES_GET_IS_SOON        = 20    #Time in minutes before the GET that the bot will try to tweet at
 MINUTES_GET_IS_UPON_US     = 5     #Time in minutes before the GET that it is basically occuring already

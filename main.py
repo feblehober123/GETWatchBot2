@@ -43,7 +43,7 @@ def update_boards(boards):    #update list of boardnames, and tweet about new on
                 if not new_board in boards:
                     print "New board: "+new_board
                     #print NEW_BOARD_TEXT.format(board=new_board)
-                    twitter.update_status(NEW_BOARD_TEXT.format(board=new_board))
+                    twitter.update_status(status=NEW_BOARD_TEXT.format(board=new_board))
         boards = new_boards    #Update boards
     with open('.boards_cache.txt', 'w') as f:
         f.write(str(time.time())+'\n')
@@ -128,7 +128,7 @@ while True:
             if board.tweeted == False:
                 print 'Tweeting!'
                 msg = GET_TEXT.format(board=board.board, time_until=int(min_until), get_name=GET_name(board.next_GET), posts_to_go=int(posts_to_go)).capitalize()
-                twitter.update_status(msg)  #could add another tweepy error handler
+                twitter.update_status(status=msg)  #could add another tweepy error handler
                 print msg
             else:
                 print 'Already tweeted.'

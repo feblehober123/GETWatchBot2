@@ -2,3 +2,4 @@
 /.boards_cache.txt
 *.pyc
 *~
+getwatchoauth.conf

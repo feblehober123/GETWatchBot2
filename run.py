@@ -13,7 +13,7 @@ logging.debug('Starting bot')
 while True:
 	try:
 		execfile('main.py')	#wrapper around code
-	except Exception:
+	except Exception as ex:
 		logging.exception("Fatal error occured")
-		print "ERROR OCURRED! BOT RESTARTING NOW!"
+		print "{0}! BOT RESTARTING NOW!".format(ex)
 		logging.warning('Restarting bot')

@@ -10,7 +10,8 @@ However, if a human has tweeted about the GET, the bot will not post and defer t
 Installation
 ------------
 
-Experience has shown that I may not always be able to keep the GETWatchBot online, so I have tried to simplify some things to enable other people to be able to run the bot when I cannot, as long as they have the OAuth keys for twitter (ask the owners of @GETWatch).
+~~Experience has shown that I may not always be able to I no longer keep the GETWatchBot online, so I have tried to simplify some things to enable other people to be able to run the bot when I cannot, as long as they have the OAuth keys for twitter (ask the owners of @GETWatch).~~
+@GETWatch no longer exists. If you really do want to run the GETWatchBot simply ask.
 
 The GETWatchBot uses the external libraries tweepy and requests. You can install them with
 
